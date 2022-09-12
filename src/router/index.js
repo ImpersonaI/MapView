@@ -1,29 +1,61 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import MapView from "../views/MapView.vue";
+import HomeView from "../views/HomeView";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: "/monitoring",
+    name: "map",
+    component: MapView,
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+    path: "/",
+    name: "home",
+    component: HomeView,
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: () =>
+      import( "../views/AboutView.vue"),
+  },
+  {
+    path: "/dashboard",
+    name: "dashboard",
+
+    component: () =>
+      import( "../views/DashboardView.vue"),
+  },
+  {
+    path: "/reports",
+    name: "reports",
+
+    component: () =>
+      import("../views/ReportsView1.vue"),
+  },
+  {
+    path: "/reports/table",
+    name: "repAnsw",
+    component: () =>
+      import(
+        "../components/ReportAnswForm.vue"
+      ),
+  },
+  {
+    path: "/drivers",
+    name: "drivers",
+    component: () =>
+      import( "../views/DriverView.vue"),
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

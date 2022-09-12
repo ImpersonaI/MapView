@@ -1,5 +1,5 @@
 <template>
-  <h1>About page</h1>
+  <h1>Monitoring</h1>
 </template>
 
 <script>
